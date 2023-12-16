@@ -1,5 +1,8 @@
 {
     "eslint.workingDirectories": [
         "./web"
-    ]
+    ],
+    "material-icon-theme.folders.associations": {
+        "infrastructure": "app"
+    }
 }
