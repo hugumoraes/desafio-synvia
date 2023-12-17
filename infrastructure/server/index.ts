@@ -1,6 +1,7 @@
 /* ---------- External ---------- */
 import cors from 'cors';
 import express, { Request, Response } from 'express';
+import { logger } from '../utils/logs';
 
 /* ---------- Routes ---------- */
 
@@ -9,7 +10,9 @@ import express, { Request, Response } from 'express';
 /* ---------- Helpers constansts ---------- */
 const port = 3333;
 
-/* ---------- Server ---------- */
+/**
+ * Manages NodeJS server settings.
+ *  ---------- */
 const app = express();
 
 /* ---------- Middlewares ---------- */
@@ -23,5 +26,5 @@ app.get('/', (request: Request, response: Response) => {
 
 /* ---------- Server start ---------- */
 app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+  logger.info(`Server started on port ${port}`);
 });
