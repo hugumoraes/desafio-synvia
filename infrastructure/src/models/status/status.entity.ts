@@ -10,24 +10,15 @@ import {
 import { Task } from '../task/task.entity';
 
 @Entity()
-export class Person {
+export class Status {
   @PrimaryGeneratedColumn()
-  person_id: number;
+  task_status_id: number;
 
   @Column('varchar', {
     length: 255,
+    nullable: false,
   })
-  person_name: string;
-
-  @Column('varchar', {
-    length: 255,
-  })
-  person_email: string;
-
-  @Column('varchar', {
-    length: 255,
-  })
-  person_phone: string;
+  task_status_name: string;
 
   @CreateDateColumn()
   created_at: Date;
@@ -35,6 +26,6 @@ export class Person {
   @UpdateDateColumn()
   updated_at: Date;
 
-  @OneToMany(() => Task, task => task.person)
+  @OneToMany(() => Task, task => task.status)
   task: Task[];
 }

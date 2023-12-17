@@ -4,37 +4,29 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToMany,
 } from 'typeorm';
 
-import { Task } from '../task/task.entity';
-
 @Entity()
-export class Person {
+export class Tag {
   @PrimaryGeneratedColumn()
-  person_id: number;
+  tag_id: number;
 
   @Column('varchar', {
     length: 255,
+    nullable: false,
+    unique: true,
   })
-  person_name: string;
+  tag_name: string;
 
   @Column('varchar', {
-    length: 255,
+    length: 9,
+    nullable: false,
   })
-  person_email: string;
-
-  @Column('varchar', {
-    length: 255,
-  })
-  person_phone: string;
+  tag_color: string;
 
   @CreateDateColumn()
   created_at: Date;
 
   @UpdateDateColumn()
   updated_at: Date;
-
-  @OneToMany(() => Task, task => task.person)
-  task: Task[];
 }
