@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+  background: #FFF;
+}
+
+.left {
+  background: red;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  background: blue;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.background {
+  border: 10px solid #FFF;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  flex: 1;
+}

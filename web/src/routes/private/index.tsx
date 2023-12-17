@@ -18,7 +18,6 @@ const private_routes_array: RouteObject[] = [
 
 export const private_routes = (): RouteObject => {
   return {
-    element: <></>,
     children: private_routes_array,
   };
 };
