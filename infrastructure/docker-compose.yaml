@@ -4,11 +4,11 @@ services:
   db:
     image: postgres:alpine
     environment:
-      POSTGRES_PASSWORD: beribo
+      POSTGRES_PASSWORD: hugo123
       POSTGRES_USER: postgres
-      POSTGRES_DB: delivery
+      POSTGRES_DB: synvia
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - '5432:5432'
   backend:
@@ -24,9 +24,9 @@ services:
       - ../:/projects
     environment:
       POSTGRES_HOST: db
-      POSTGRES_PASSWORD: beribo
+      POSTGRES_PASSWORD: hugo123
       POSTGRES_USER: postgres
-      POSTGRES_DB: delivery
+      POSTGRES_DB: synvia
       POSTGRES_PORT: 5432
       PORT: 3333
       HOST: 0.0.0.0
