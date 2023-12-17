@@ -12,29 +12,21 @@ services:
     ports:
       - '5432:5432'
   backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: prod_backend
+    platform: linux/amd64
+    image: node:20-alpine
+    working_dir: /projects/infrastructure
+    tty: true
     depends_on:
       - db
     ports:
-      - '2503:2503'
+      - '3333:3333'
+    volumes:
+      - ../:/projects
     environment:
       POSTGRES_HOST: db
-      NODE_ENV: production
       POSTGRES_PASSWORD: beribo
       POSTGRES_USER: postgres
       POSTGRES_DB: delivery
       POSTGRES_PORT: 5432
-      PORT: 2503
+      PORT: 3333
       HOST: 0.0.0.0
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: frontend
-    depends_on:
-      - backend
-    ports:
-      - '5000:5000'

@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  frontend:
+    platform: linux/amd64
+    image: node:20-alpine
+    working_dir: /projects/web
+    tty: true
+    volumes:
+      - ../:/projects
+    ports:
+      - '3001:3001'
