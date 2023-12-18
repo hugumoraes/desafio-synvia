@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Card } from '_components/UI/Card';
 import { Header } from '_components/UI/Header';
 import { Navbar } from '_components/UI/Navbar';
 import { ToggleSelect } from '_components/UI/ToggleSelect';
@@ -16,7 +15,6 @@ export const Home: React.FC = () => (
 
       <div>
         <ToggleSelect />
-        <Card />
       </div>
     </main>
   </div>

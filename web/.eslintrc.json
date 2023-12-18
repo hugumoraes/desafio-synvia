@@ -28,7 +28,15 @@
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/naming-convention": "off",
     "react/react-in-jsx-scope": "off",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": {
+          "attributes": false
+        }
+      }
+    ]
   },
   "settings": {
     "import/resolver": {

@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './styles.module.scss';
 
 import { BsListTask, BsTags } from 'react-icons/bs';
 
-export const Navbar: React.FC = () => (
-  <div className={styles.container}>
-    <div className={styles.container_navbar}>
-      <div className={styles.hightlight_navbar}>
-        <BsListTask />
-        <p>Tasks</p>
-      </div>
+export const Navbar: React.FC = () => {
+  const [navigation] = useState([
+    { name: 'Tasks', icon: BsListTask, path: '/tasks' },
+    { name: 'Tags', icon: BsTags, path: '/tags' },
+  ]);
 
-      <div>
-        <BsTags className={styles.icon} />
-        <p>Tags</p>
-      </div>
-    </div>
+  return (
+    <nav className={styles.container}>
+      <ul>
+        {navigation.map((item, index) => (
+          <li key={index}>
+            <item.icon />
 
-    <div className={styles.line} />
-  </div>
-);
+            <Link to={item.path}>{item.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
