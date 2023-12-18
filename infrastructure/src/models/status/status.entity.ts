@@ -9,7 +9,7 @@ import {
 
 import { Task } from '../task/task.entity';
 
-@Entity()
+@Entity({ name: 'task_status' })
 export class Status {
   @PrimaryGeneratedColumn()
   task_status_id: number;

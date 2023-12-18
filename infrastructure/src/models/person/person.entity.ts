@@ -9,7 +9,7 @@ import {
 
 import { Task } from '../task/task.entity';
 
-@Entity()
+@Entity({ name: 'person' })
 export class Person {
   @PrimaryGeneratedColumn()
   person_id: number;

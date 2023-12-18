@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import { users_repository } from '../../repositories/users/index.repository';
+import { users_repository } from '../../repositories/users/users.repository';
 
 const get_user_by_id = async (
   request: Request,

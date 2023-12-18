@@ -7,6 +7,7 @@ import {
   ManyToOne,
   ManyToMany,
   JoinTable,
+  JoinColumn,
 } from 'typeorm';
 
 import { Person } from '../person/person.entity';
@@ -33,12 +34,24 @@ export class Task {
   updated_at: Date;
 
   @ManyToOne(() => Person, person => person.task)
+  @JoinColumn({ name: 'person_id' })
   person: Person;
 
   @ManyToOne(() => Status, status => status.task)
+  @JoinColumn({ name: 'task_status_id' })
   status: Status;
 
-  @ManyToMany(() => Tag)
-  @JoinTable()
+  @ManyToMany(() => Tag, { cascade: true })
+  @JoinTable({
+    name: 'task_tag',
+    joinColumn: {
+      name: 'task_id',
+      referencedColumnName: 'task_id',
+    },
+    inverseJoinColumn: {
+      name: 'tag_id',
+      referencedColumnName: 'tag_id',
+    },
+  })
   tags: Tag[];
 }
