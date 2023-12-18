@@ -25,11 +25,11 @@ export class User {
   })
   user_password: string;
 
-  @Column()
+  @Column({})
   person_id: number;
 
   @OneToOne(() => Person)
-  @JoinColumn()
+  @JoinColumn({ name: 'person_id' })
   person: Person;
 
   @CreateDateColumn()

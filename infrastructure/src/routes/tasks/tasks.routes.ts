@@ -1,5 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express';
 
+import { authentication } from '../../common/middlewares/authentication.middleware';
 import { tasks_controller } from '../../controllers/tasks/tasks.controller';
 
 import { logger } from '../../common/utils/logs';
@@ -9,6 +10,7 @@ const tasks_routes = Router();
 
 tasks_routes.get(
   '/task/:id',
+  authentication,
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint GET /task/:id');
@@ -32,6 +34,7 @@ tasks_routes.get(
  */
 tasks_routes.get(
   '/task',
+  authentication,
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint GET /task');

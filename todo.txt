@@ -5,7 +5,10 @@ To finish step 2:
 [x] - Create frontend to add/delete tags.
 [] - Create frontend to add/update person.
 
-After those, start authentication process:
+To finish step 3:
+[x] - Create register routes
+[x] - Create login routes
+[x] - Create authentication middleware
 
 Extra:
 [] - Improve the error handling system on routes.
