@@ -8,7 +8,7 @@ import { public_routes } from '_routes/public';
 /* ----------
  * Create authentication system and change here
  * ---------- */
-const check_auth = (): boolean => false;
+const check_auth = (): boolean => true;
 
 const router = createBrowserRouter([
   check_auth() ? private_routes() : {},

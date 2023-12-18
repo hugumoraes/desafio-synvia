@@ -1,0 +1,52 @@
+.container {
+  width: 15vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container_navbar {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 30px;
+
+  p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 15px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    margin-bottom: 20px;
+  }
+}
+
+.hightlight_navbar {
+  padding: 5px 0px 5px 10px;
+  color: #7F265B;
+  background: #de88bc;
+  height: 5vh;
+  border-radius: 5px;
+
+  svg {
+    font-size: 1.5rem;
+    color: #7F265B;
+  }
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.line {
+  height: 100vw;
+  width: 1px;
+
+  background: #bcbbbb;
+}
