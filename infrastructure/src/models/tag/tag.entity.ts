@@ -4,7 +4,11 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToMany,
+  JoinTable,
 } from 'typeorm';
+
+import { Task } from '../task/task.entity';
 
 @Entity()
 export class Tag {
@@ -29,4 +33,18 @@ export class Tag {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @ManyToMany(() => Task, { cascade: true })
+  @JoinTable({
+    name: 'task_tag',
+    inverseJoinColumn: {
+      name: 'task_id',
+      referencedColumnName: 'task_id',
+    },
+    joinColumn: {
+      name: 'tag_id',
+      referencedColumnName: 'tag_id',
+    },
+  })
+  tasks: Task[];
 }

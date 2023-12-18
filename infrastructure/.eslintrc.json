@@ -28,6 +28,9 @@
     "/*.js"
   ],
   "rules": {
+    "import/no-extraneous-dependencies": [
+      "off"
+    ],
     "camelcase": "off",
     "import/extensions": [
       "error",

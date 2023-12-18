@@ -9,6 +9,7 @@ import { User } from '../../models/user/user.entity';
 import { Task } from '../../models/task/task.entity';
 import { Status } from '../../models/status/status.entity';
 import { Tag } from '../../models/tag/tag.entity';
+import { TaskTag } from '../../models/task-tag/task_tag.entity';
 
 import { logger } from '../utils/logs';
 
@@ -25,8 +26,8 @@ export const PostgresDataSource = new DataSource({
   username: db_user,
   password: db_password,
   database: db_name,
-  entities: [Person, User, Task, Status, Tag],
-  synchronize: true,
+  entities: [Person, User, Task, Status, Tag, TaskTag],
+  synchronize: false,
   logging: false,
 });
 
@@ -35,11 +36,6 @@ PostgresDataSource.initialize()
     return logger.info('Data Source has been initialized!');
   })
   .catch(err => {
-    return logger.error(
-      `Error during Data Source initialization: ${JSON.stringify(
-        err,
-        null,
-        2,
-      )}`,
-    );
+    logger.error(`Error during Data Source initialization: `);
+    logger.error(err);
   });
