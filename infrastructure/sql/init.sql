@@ -67,11 +67,20 @@ INSERT INTO "tag" (tag_name, tag_color) VALUES
 
 INSERT INTO "user" (user_login, user_password, person_id) VALUES
 ('hugomoraes_@hotmail.com', '01fff2ef1ce8881908fac918feca78bf', null);
+('hugomoraes_2@hotmail.com', '01fff2ef1ce8881908fac918feca78bf', null);
+('hugomoraes_3@hotmail.com', '01fff2ef1ce8881908fac918feca78bf', null);
+('hugomoraes_4@hotmail.com', '01fff2ef1ce8881908fac918feca78bf', null);
 
 INSERT INTO "person" (person_name, person_email, person_phone) VALUES
 ('Hugo Moraes Bonatto', 'hugomoraes_@hotmail.com', '51999999999');
+('Hugo Moraes Bonatto 2', 'hugomoraes_@hotmail.com 2', '51999999999');
+('Hugo Moraes Bonatto 3', 'hugomoraes_@hotmail.com 2', '51999999999');
+('Hugo Moraes Bonatto 4', 'hugomoraes_@hotmail.com 2', '51999999999');
 
 UPDATE "user" SET person_id = 1 WHERE user_id = 1;
+UPDATE "user" SET person_id = 2 WHERE user_id = 2;
+UPDATE "user" SET person_id = 3 WHERE user_id = 3;
+UPDATE "user" SET person_id = 4 WHERE user_id = 4;
 
 INSERT INTO "task" (task_description, task_title, person_id, task_status_id) VALUES
 ('This is a test task', 'Test Task', 1, 1),

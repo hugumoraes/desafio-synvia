@@ -1,8 +1,11 @@
 To finish step 2:
-
+[x] - Finish layout of tasks
 [] - Create backend routes responsible for managing person association to task.
-[] - Create frontend to edit tasks.
-[] - Create frontend to add/delete tags.
+[x] - Create frontend to edit tasks.
+[x] - Create frontend to add/delete tags.
 [] - Create frontend to add/update person.
 
 After those, start authentication process:
+
+Extra:
+[] - Improve the error handling system on routes.

@@ -7,7 +7,7 @@ import { logger } from '../../../common/utils/logs';
 const tasks_tags_routes = Router();
 
 tasks_tags_routes.post(
-  '/task/:id/tag',
+  '/task/:task_id/tag',
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint POST /task/:id/tag');
