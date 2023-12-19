@@ -1,11 +1,21 @@
+/* ---------- External ---------- */
 import { DeepPartial } from 'typeorm';
+
+/* ---------- Common ---------- */
 import { PostgresDataSource } from '../../common/databases/postgres.database';
 
+/* ---------- Entities ---------- */
 import { Tag } from '../../models/tag/tag.entity';
 
+/* ---------- Utils ---------- */
+import { logger } from '../../common/utils/logs';
+
+/* ---------- Repositories ---------- */
 const tag_repository = PostgresDataSource.getRepository(Tag);
 
 const get_tag_by_id = async (id: number): Promise<Tag> => {
+  logger.debug('ID [get_tag_by_id]:', id);
+
   const tag = await tag_repository.findOne({
     where: {
       tag_id: id,

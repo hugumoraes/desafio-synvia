@@ -1,3 +1,4 @@
+/* ---------- External ---------- */
 import {
   Entity,
   Column,
@@ -8,6 +9,7 @@ import {
   JoinTable,
 } from 'typeorm';
 
+/* ---------- Entities ---------- */
 import { Task } from '../task/task.entity';
 
 @Entity()

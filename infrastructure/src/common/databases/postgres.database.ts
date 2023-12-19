@@ -1,18 +1,23 @@
 import 'reflect-metadata';
 
+/* ---------- External ---------- */
 import { DataSource } from 'typeorm';
 
+/* ---------- Config ---------- */
 import { db_host, db_name, db_password, db_port, db_user } from '../config';
 
+/* ---------- Models ---------- */
 import { Person } from '../../models/person/person.entity';
-import { User } from '../../models/user/user.entity';
-import { Task } from '../../models/task/task.entity';
 import { Status } from '../../models/status/status.entity';
 import { Tag } from '../../models/tag/tag.entity';
+import { Task } from '../../models/task/task.entity';
 import { TaskTag } from '../../models/task-tag/task_tag.entity';
+import { User } from '../../models/user/user.entity';
 
+/* ---------- Utils ---------- */
 import { logger } from '../utils/logs';
 
+/* ---------- Logs ---------- */
 logger.debug(`db_host: ${db_host}`);
 logger.debug(`db_port: ${db_port}`);
 logger.debug(`db_user: ${db_user}`);

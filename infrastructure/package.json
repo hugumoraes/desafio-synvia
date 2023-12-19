@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "tsnd  src/index.ts --respawn --clear --notify",
     "lint": "eslint --fix .",
-    "scripts": "ts-node scripts/index.ts",
     "test": "jest --detectOpenHandles"
   },
   "devDependencies": {
