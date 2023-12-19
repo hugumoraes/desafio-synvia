@@ -27,10 +27,10 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
   /* ----------- Effects ----------- */
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const token = localStorage.getItem('@synvia:token');
+      const local_token = localStorage.getItem('@synvia:token');
 
-      if (token != null && token !== '') {
-        setToken(token);
+      if (local_token != null && local_token !== '') {
+        setToken(local_token);
       }
     }
 
@@ -38,6 +38,8 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
       setToken('');
     };
   }, []);
+
+  console.log(token);
 
   const value = useMemo(
     () => ({

@@ -54,7 +54,6 @@ CREATE TABLE public.task_tag (
 
 -- Adding initial data to the database
 INSERT INTO task_status (task_status_name) VALUES
-('On hold'),
 ('Not Started'),
 ('In Progress'),
 ('Completed');
@@ -66,27 +65,27 @@ INSERT INTO "tag" (tag_name, tag_color) VALUES
 ('Low Priority', '#008000'); -- Green color for Low Priority
 
 INSERT INTO "user" (user_login, user_password, person_id) VALUES
-('hugomoraes_@hotmail.com', '01fff2ef1ce8881908fac918feca78bf', null);
-('hugomoraes_2@hotmail.com', '01fff2ef1ce8881908fac918feca78bf', null);
-('hugomoraes_3@hotmail.com', '01fff2ef1ce8881908fac918feca78bf', null);
-('hugomoraes_4@hotmail.com', '01fff2ef1ce8881908fac918feca78bf', null);
+('hugo', '$2b$10$m08Y20C0r7hf8qhYYl9by.4TIZX5nRPKW4/NNjjg6vL6Jk.SYhvHS', null),
+('joaquim', '$2b$10$m08Y20C0r7hf8qhYYl9by.4TIZX5nRPKW4/NNjjg6vL6Jk.SYhvHS', null),
+('maria', '$2b$10$m08Y20C0r7hf8qhYYl9by.4TIZX5nRPKW4/NNjjg6vL6Jk.SYhvHS', null),
+('leonardo', '$2b$10$m08Y20C0r7hf8qhYYl9by.4TIZX5nRPKW4/NNjjg6vL6Jk.SYhvHS', null);
 
 INSERT INTO "person" (person_name, person_email, person_phone) VALUES
-('Hugo Moraes Bonatto', 'hugomoraes_@hotmail.com', '51999999999');
-('Hugo Moraes Bonatto 2', 'hugomoraes_@hotmail.com 2', '51999999999');
-('Hugo Moraes Bonatto 3', 'hugomoraes_@hotmail.com 2', '51999999999');
-('Hugo Moraes Bonatto 4', 'hugomoraes_@hotmail.com 2', '51999999999');
+('Hugo', 'hugo@hotmail.com', '51999999999'),
+('Joaquim', 'joaquim@hotmail.com', '51999999999'),
+('Maria', 'maria@hotmail.com', '51999999999'),
+('Leonardo', 'leonardo@hotmail.com', '51999999999');
 
 UPDATE "user" SET person_id = 1 WHERE user_id = 1;
 UPDATE "user" SET person_id = 2 WHERE user_id = 2;
 UPDATE "user" SET person_id = 3 WHERE user_id = 3;
 UPDATE "user" SET person_id = 4 WHERE user_id = 4;
 
-INSERT INTO "task" (task_description, task_title, person_id, task_status_id) VALUES
-('This is a test task', 'Test Task', 1, 1),
-('This is a test task 2', 'Test Task 2', 1, 2),
-('This is a test task 3', 'Test Task 3', 1, 3),
-('This is a test task 4', 'Test Task 4', 1, 4);
+INSERT INTO "task" (task_title, task_description, person_id, task_status_id) VALUES
+('Clean up dishes', 'Quisque viverra, nunc tempus interdum gravida, velit velit dignissim elit, vel dictum augue elit eget tortor. Nam pharetra est quis ligula facilisis, rhoncus dapibus diam feugiat. Aliquam mattis posuere elementum. Vestibulum molestie vitae metus quis pellentesque. Proin condimentum massa sed nisi mattis bibendum. Curabitur ultricies enim nec vehicula tincidunt. Pellentesque commodo aliquam turpis, ut tincidunt leo feugiat ut. Nulla semper velit sit amet elit tristique, et vulputate nibh ullamcorper.', 1, 1),
+('Take out the garbage', 'Vivamus sagittis tincidunt aliquam. Proin commodo sapien a ligula facilisis tempor. In congue tortor in velit consequat volutpat. Donec felis dui, tristique ut pulvinar nec, vulputate vitae turpis. Donec id nunc in ligula vehicula dignissim id accumsan nibh. Nullam a feugiat ipsum, eget scelerisque tortor. In fringilla rutrum dui non porta. Vestibulum mollis dictum libero eget tincidunt. Maecenas eget magna elementum, venenatis turpis vel, vestibulum ex.', 2, 2),
+('Take a fast shower', 'Morbi vel cursus lacus, id mollis est. Aliquam eget posuere enim. Proin dui ante, imperdiet nec lorem in, viverra posuere metus. Etiam ac consequat massa. Sed pellentesque nunc quis tristique ullamcorper. Nam iaculis mi a elit luctus sagittis. Nulla at orci eget quam vehicula posuere id non est. Donec imperdiet turpis porta, ultricies urna non, rutrum sapien. Fusce hendrerit dictum diam, varius eleifend massa gravida sit amet. Praesent ut tellus risus. Quisque mauris justo, tempor in lacinia a, maximus eget ligula. Nunc enim urna, volutpat vel elit ac, malesuada iaculis sem.', 2, 3),
+('Ring the bell', 'Phasellus bibendum massa risus, in blandit ante dignissim ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ut suscipit libero, sit amet commodo augue. Pellentesque bibendum elementum sodales.', 1, 1);
 
 INSERT INTO "task_tag" (task_id, tag_id) VALUES
 (1, 1),

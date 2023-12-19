@@ -87,6 +87,10 @@ const authenticate_user = async (
         message: 'Unauthorized',
       });
 
+    const salt = await genSalt(10);
+    const hashed_password = await hash(password, salt);
+    logger.debug(`Salted password: ${hashed_password}`);
+
     const user = await users_repository.get_user_by_user_login(username);
 
     if (!user)

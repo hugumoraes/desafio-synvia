@@ -17,6 +17,15 @@ interface Tag {
   updated_at: string;
 }
 
+interface Person {
+  person_id: number;
+  person_name: string;
+  person_email: string;
+  person_phone: string;
+  created_at: string;
+  updated_at: string;
+}
+
 interface TaskInterface {
   task_id: number;
   task_title: string;
@@ -25,6 +34,7 @@ interface TaskInterface {
   tags?: Tag[];
   created_at: string;
   updated_at: string;
+  person?: Person;
 }
 
 type Props = TaskInterface & {
@@ -43,6 +53,7 @@ export const Task: React.FC<Props> = ({
   task_title,
   tags,
   created_at,
+  person,
   handle_delete_button_click,
   handle_add_tag_button_click,
   handle_remove_tag_button_click,
@@ -57,7 +68,7 @@ export const Task: React.FC<Props> = ({
       <hr />
 
       <div className={styles.informational}>
-        <span className={styles.owner}>Hugo Moraes Bonatto</span>
+        <span className={styles.owner}>{person?.person_name}</span>
 
         <span className={styles.date}>
           {new Date(created_at).toLocaleDateString('pt-BR', {

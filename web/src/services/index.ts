@@ -6,6 +6,8 @@ const api = axios.create({
 
 api.interceptors.request.use(
   async config => {
+    if (config.url === '/authentication') return config;
+
     const token = localStorage.getItem('@synvia:token');
 
     if (token != null && token !== '') {

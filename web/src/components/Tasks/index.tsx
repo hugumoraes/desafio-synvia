@@ -15,6 +15,15 @@ interface Tag {
   updated_at: string;
 }
 
+interface Person {
+  person_id: number;
+  person_name: string;
+  person_email: string;
+  person_phone: string;
+  created_at: string;
+  updated_at: string;
+}
+
 interface TaskInterface {
   task_id: number;
   task_title: string;
@@ -23,6 +32,7 @@ interface TaskInterface {
   created_at: string;
   updated_at: string;
   tags?: Tag[];
+  person?: Person;
 }
 
 interface GetAllTasksResponse {
@@ -384,6 +394,7 @@ export const Tasks: React.FC = () => {
                 created_at={task.created_at}
                 tags={task.tags}
                 updated_at={task.updated_at}
+                person={task.person}
               />
             ))}
           </ul>

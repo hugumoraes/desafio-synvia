@@ -22,6 +22,7 @@ services:
       - '3333:3333'
     volumes:
       - ../:/projects
+    command: apt-get update && apt-get install -y build-essential && apt-get install -y python
     environment:
       POSTGRES_HOST: db
       POSTGRES_PASSWORD: hugo123
@@ -30,3 +31,5 @@ services:
       POSTGRES_PORT: 5432
       PORT: 3333
       HOST: 0.0.0.0
+      SECRET_KEY: secret
+

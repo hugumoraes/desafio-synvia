@@ -1,42 +1,30 @@
 import React from 'react';
-import { Buffer } from 'buffer';
 import { Navigate, useNavigate } from 'react-router-dom';
 import LogoLogin from '../../assets/logo-login.svg?react';
 
 import { api } from '_services';
-import { useAuth } from '_context/auth';
 import BackgroundLogo from '../../assets/background.svg?react';
 import styles from './styles.module.scss';
+import { useAuth } from '_context/auth';
 
-export const Login: React.FC = () => {
-  const { token, setToken } = useAuth();
+export const Register: React.FC = () => {
   const navigate = useNavigate();
+  const { token } = useAuth();
+
   const [username, setUsername] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
 
-  const handle_login = async (): Promise<void> => {
-    const login_information: string = Buffer.from(
-      `${username}:${password}`,
-      'utf8',
-    ).toString('base64');
-
-    const { data } = await api.get('/authentication', {
-      headers: {
-        authorization: 'Basic ' + login_information,
-      },
+  const handle_register = async (): Promise<void> => {
+    await api.post('/authentication', {
+      user_login: username,
+      user_password: password,
     });
 
-    const { token: token_data } = data;
-
-    localStorage.setItem('@synvia:token', token_data);
-
-    setToken(token_data);
-
-    navigate('/');
+    navigate('/login');
   };
 
-  const handle_navigate_to_register = (): void => {
-    navigate('/register');
+  const handle_navigate_to_login = (): void => {
+    navigate('/login');
   };
 
   const handle_input_change = (
@@ -65,7 +53,7 @@ export const Login: React.FC = () => {
         <div className={styles.login_form}>
           <LogoLogin />
 
-          <h1>Login to your Account</h1>
+          <h1>Create a new account</h1>
 
           <label>Username</label>
           <input
@@ -74,6 +62,7 @@ export const Login: React.FC = () => {
             onChange={handle_input_change}
             value={username}
             name="username"
+            placeholder="Enter your username"
           />
 
           <label>Password</label>
@@ -83,18 +72,19 @@ export const Login: React.FC = () => {
             onChange={handle_input_change}
             value={password}
             name="password"
+            placeholder="Enter your password"
           />
 
-          <button className={styles.login_button} onClick={handle_login}>
-            Login
+          <button className={styles.login_button} onClick={handle_register}>
+            Register
           </button>
         </div>
 
         <div className={styles.register}>
-          <span>Not Registered Yet?</span>
+          <span>Already a member?</span>
 
-          <button type="button" onClick={handle_navigate_to_register}>
-            Create an account
+          <button type="button" onClick={handle_navigate_to_login}>
+            Go back to login
           </button>
         </div>
       </div>
