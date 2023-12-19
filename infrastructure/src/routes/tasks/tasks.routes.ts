@@ -52,6 +52,7 @@ tasks_routes.get(
 
 tasks_routes.post(
   '/task',
+  authentication,
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint POST /task');
@@ -69,6 +70,7 @@ tasks_routes.post(
 
 tasks_routes.delete(
   '/task/:id',
+  authentication,
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint DELETE /task/:id');
@@ -86,6 +88,7 @@ tasks_routes.delete(
 
 tasks_routes.patch(
   '/task/:id',
+  authentication,
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint PATCH /task/:id');

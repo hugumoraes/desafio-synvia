@@ -1,6 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
 
 import { tags_controller } from '../../controllers/tags/tags.controller';
+import { authentication } from '../../common/middlewares/authentication.middleware';
 
 import { logger } from '../../common/utils/logs';
 
@@ -8,6 +9,7 @@ const tags_routes = Router();
 
 tags_routes.get(
   '/tag/:id',
+  authentication,
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint GET /tag/:id');
@@ -25,6 +27,7 @@ tags_routes.get(
 
 tags_routes.get(
   '/tag',
+  authentication,
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint GET /tag');
@@ -42,6 +45,7 @@ tags_routes.get(
 
 tags_routes.post(
   '/tag',
+  authentication,
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint POST /tag');
@@ -59,6 +63,7 @@ tags_routes.post(
 
 tags_routes.delete(
   '/tag/:id',
+  authentication,
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint DELETE /tag/:id');
@@ -76,6 +81,7 @@ tags_routes.delete(
 
 tags_routes.patch(
   '/tag/:id',
+  authentication,
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint PATCH /tag/:id');

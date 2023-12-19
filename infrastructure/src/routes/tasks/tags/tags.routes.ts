@@ -1,6 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
 
 import { tasks_controller } from '../../../controllers/tasks/tasks.controller';
+import { authentication } from '../../../common/middlewares/authentication.middleware';
 
 import { logger } from '../../../common/utils/logs';
 
@@ -8,6 +9,7 @@ const tasks_tags_routes = Router();
 
 tasks_tags_routes.post(
   '/task/:task_id/tag',
+  authentication,
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint POST /task/:id/tag');
@@ -25,6 +27,7 @@ tasks_tags_routes.post(
 
 tasks_tags_routes.delete(
   '/task/:task_id/tag/:tag_id',
+  authentication,
   async (request: Request, response: Response, next: NextFunction) => {
     try {
       logger.info('Calling endpoint DELETE /task/:task_id/tag/:tag_id');
