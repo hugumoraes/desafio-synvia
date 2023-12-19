@@ -7,24 +7,31 @@ import { Home } from '_components/Home';
 import { Tasks } from '_components/Tasks';
 import { Tags } from '_components/Tags';
 
+import { ProtectedRoute } from '_components/Auth/ProtectedRoute';
+
 /* ---------- Constants ---------- */
 const private_routes_array: RouteObject[] = [
   {
-    path: '/',
-    element: <Home />,
-    errorElement: <Error />,
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+        errorElement: <Error />,
+      },
+      {
+        path: '/tasks',
+        element: <Tasks />,
+        errorElement: <Error />,
+      },
+      {
+        path: '/tags',
+        element: <Tags />,
+        errorElement: <Error />,
+      },
+      { path: '*', element: <Navigate to="/" replace /> },
+    ],
   },
-  {
-    path: '/tasks',
-    element: <Tasks />,
-    errorElement: <Error />,
-  },
-  {
-    path: '/tags',
-    element: <Tags />,
-    errorElement: <Error />,
-  },
-  { path: '*', element: <Navigate to="/" replace /> },
 ];
 
 export const private_routes = (): RouteObject => {

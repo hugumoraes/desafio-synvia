@@ -125,6 +125,8 @@ export const Tasks: React.FC = () => {
 
   const handle_add_tag = (task_id: number): void => {
     setModal(String(task_id));
+    setTagModal(true);
+    setEditModal(false);
   };
 
   const handle_remove_tag_from_task = async (
@@ -287,7 +289,7 @@ export const Tasks: React.FC = () => {
       <div className={modal === '' ? styles.modal_hidden : styles.modal}>
         <div className={styles.modal_content} ref={ref}>
           {tag_modal && (
-            <ul>
+            <ul className={styles.tags_modal}>
               {tags.map(tag => (
                 <li
                   key={tag.tag_id}

@@ -10,5 +10,9 @@ To finish step 3:
 [x] - Create login routes
 [x] - Create authentication middleware
 
+To finish step 6:
+[x] = Create tests for tags controller
+
 Extra:
 [] - Improve the error handling system on routes.
+[] - Black tags don't have background

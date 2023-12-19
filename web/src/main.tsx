@@ -9,11 +9,16 @@ import { RouterProvider } from 'react-router-dom';
 /* ---------- Router ---------- */
 import { router } from '_routes';
 
+/* ---------- Contexts---------- */
+import { AppProvider } from '_context';
+
 /* ---------- Styles ---------- */
 import '_styles/global.scss';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
   </React.StrictMode>,
 );

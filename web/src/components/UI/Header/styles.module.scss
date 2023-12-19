@@ -1,22 +1,35 @@
 .container {
   width: 100vw;
 
-  padding: 15px 30px 15px 0;
+  padding: 0;
 
   background: #7F265B;
 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+
   display: flex;
   justify-content: space-between;
+
+  button {
+    background: none;
+    text-decoration: underline;
+
+    margin: 24px;
+
+    padding: 12px 24px;
+
+    border-radius: 4px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.15);
+    }
+  }
 }
 
 .logo {
-  width: 4vw;
-  height: 4vh;
+  margin: 24px;
+
+  width: 46px;
+  height: 52px;
 }
 
-.line {
-  width: 100vw;
-  height: 1px;
-
-  background: #bcbbbb;
-}
