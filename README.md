@@ -50,4 +50,4 @@ Make sure you have installed all of the following prerequisites on your developm
 - [Typescript](https://www.typescriptlang.org/) - TypeScript is JavaScript with syntax for types.
 
 ## ✍️ Authors <a name = "authors"></a>
-- Hugo Moraes Bonatto <hbonatto@ciandt.com>
+- Hugo Moraes Bonatto <hugomoraes_@hotmail.com>
