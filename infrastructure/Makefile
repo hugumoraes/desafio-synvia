@@ -26,3 +26,6 @@ logs:
 
 logs-db:
 	docker-compose logs -f --tail=100 db
+
+test: down
+	docker-compose run --rm --service-ports backend yarn test

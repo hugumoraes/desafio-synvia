@@ -6,7 +6,7 @@
     "dev": "tsnd  src/index.ts --respawn --clear --notify",
     "lint": "eslint --fix .",
     "scripts": "ts-node scripts/index.ts",
-    "test": "jest --watchAll --runInBand --detectOpenHandles --forceExit"
+    "test": "jest --detectOpenHandles"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
